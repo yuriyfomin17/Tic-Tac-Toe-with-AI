@@ -1,0 +1,12 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: path = 'C:\Users\Public\Desktop\Temporary\Newsletters'.lower()
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/11137#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 03 Feb 2021 09:57:56 UTC
+record: -1
