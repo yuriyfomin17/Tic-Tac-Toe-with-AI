@@ -2,10 +2,11 @@ type: code
 files:
 - name: main.py
   visible: true
+  text: prime_numbers = ...
   learner_created: false
-feedback_link: https://hyperskill.org/learn/step/9478#comment
+feedback_link: https://hyperskill.org/learn/step/9515#comment
 status: Solved
 feedback:
   message: <html>Correct solution</html>
-  time: Wed, 03 Feb 2021 12:03:48 UTC
+  time: Wed, 03 Feb 2021 14:04:24 UTC
 record: -1
