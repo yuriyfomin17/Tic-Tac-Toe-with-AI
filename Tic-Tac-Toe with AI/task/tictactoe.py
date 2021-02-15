@@ -1,5 +1,6 @@
 # write your code here
 from collections import deque
+import random
 
 
 class Board:
@@ -7,11 +8,11 @@ class Board:
         self.top = " ---------"
         self.bot = "---------"
         self.board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-        self.next_figure = "O"
+        self.next_figure = "X"
 
     def fill_board(self, coordinate, string):
-        [x, y] = coordinate
-        self.board[x][y] = string
+        [x_coordinate, y_coordinate] = coordinate
+        self.board[x_coordinate][y_coordinate] = string
 
     def print_board(self):
         print(self.top)
@@ -27,50 +28,43 @@ class Board:
             print(' '.join(curr_string))
         print(self.bot)
 
+    def make_easy_move(self, new_board):
+        print('Making move level "easy"')
+        random_x = random.randint(0, 2)
+        random_y = random.randint(0, 2)
+        while self.board[random_x][random_y] == "X" or self.board[random_x][random_y] == "O":
+            random_x = random.randint(0, 2)
+            random_y = random.randint(0, 2)
+        new_board.fill_board([random_x, random_y], 'O')
+
     def check_winner(self):
         for x in range(3):
             if self.board[x][0] == self.board[x][1] == self.board[x][2]:
                 print("" + str(self.board[x][0]) + " wins")
                 return True
-            if self.board[0][x] == self.board[1][x] == self.board[2][x]:
-                print("" + str(self.board[0][x]) + " wins")
-                return True
-            if self.board[0][0] == self.board[1][1] == self.board[2][2]:
-                print("" + str(self.board[1][1]) + " wins")
-                return True
-            if self.board[2][0] == self.board[1][1] == self.board[0][2]:
-                print("" + str(self.board[1][1]) + " wins")
-                return True
-        all_string = [str(x).isnumeric() for curr_row in self.board for x in curr_row]
-        if all(all_string):
-            return "Draw"
+        if self.board[0][x] == self.board[1][x] == self.board[2][x]:
+            print("" + str(self.board[0][x]) + " wins")
+            return True
+        if self.board[0][0] == self.board[1][1] == self.board[2][2]:
+            print("" + str(self.board[1][1]) + " wins")
+            return True
+        if self.board[2][0] == self.board[1][1] == self.board[0][2]:
+            print("" + str(self.board[1][1]) + " wins")
+            return True
+        # all_string = [str(x).isnumeric() for curr_row in self.board for x in curr_row]
+        # if all(all_string):
+        #     return "Draw"
         print("Game not finished")
         return None
 
 
 board = Board()
-cells = input("Enter the cells")
-cells = list(cells)
-for row in range(3):
-    for col in range(3):
-        sum = row * 3 + col
-        if cells[sum] != "_":
-            board.fill_board([row, col], cells[sum])
 board.print_board()
 while board.check_winner() is None:
     coordinates = input("Enter the coordinates:")
     coordinates = coordinates.strip()
     count_x = 0
     count_o = 0
-    for i in range(len(cells)):
-        if cells[i] == "O":
-            count_o += 1
-        if cells[i] == "X":
-            count_x += 1
-        if count_x == count_o:
-            board.next_figure = "X"
-        if count_x > count_o:
-            board.next_figure = "O"
     if coordinates != '':
         coordinates = coordinates.split(" ")
         new_coordinates = [int(x) if x.isnumeric() else False for x in coordinates]
@@ -81,12 +75,9 @@ while board.check_winner() is None:
             elif board.board[x - 1][y - 1] == "O" or board.board[x - 1][y - 1] == "X":
                 print("This cell is occupied! Choose another one!")
             else:
-                if board.next_figure == "X":
-                    board.fill_board([x - 1, y - 1], "X")
-                    board.next_figure = "O"
-                elif board.next_figure == "O":
-                    board.fill_board([x - 1, y - 1], "O")
-                    board.next_figure = "X"
+                board.fill_board([x - 1, y - 1], "X")
+                board.print_board()
+                board.make_easy_move(board)
                 board.print_board()
         elif not all(new_coordinates):
             print("You should enter numbers!")

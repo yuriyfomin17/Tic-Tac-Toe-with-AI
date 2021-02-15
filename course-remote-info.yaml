@@ -3,14 +3,14 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/262969/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Wed, 03 Feb 2021 15:15:44 UTC
+update_date: Mon, 15 Feb 2021 14:56:07 UTC
 stages:
 - id: 452
   step: 7439
   is_completed: true
 - id: 453
   step: 7440
-  is_completed: false
+  is_completed: true
 - id: 454
   step: 7441
   is_completed: false
@@ -42,10 +42,6 @@ topics:
     theory_id: 5913
   - title: Program with numbers
     theory_id: 5872
-  - title: List
-    theory_id: 5979
-  - title: Indexes
-    theory_id: 6189
   - title: Invoking a function
     theory_id: 5891
   - title: Declaring a function
@@ -64,10 +60,6 @@ topics:
     theory_id: 6065
   - title: Loop control statements
     theory_id: 6302
-  - title: List comprehension
-    theory_id: 6315
-  - title: Nested lists
-    theory_id: 6938
   - title: Errors
     theory_id: 6052
   - title: Any and all
@@ -84,12 +76,20 @@ topics:
     theory_id: 5859
   - title: Type casting
     theory_id: 6224
+  - title: List
+    theory_id: 5979
+  - title: Indexes
+    theory_id: 6189
   - title: Boolean logic
     theory_id: 6025
   - title: Comparisons
     theory_id: 5920
   - title: Basic string methods
     theory_id: 6842
+  - title: List comprehension
+    theory_id: 6315
+  - title: Nested lists
+    theory_id: 6938
   - title: Split and join
     theory_id: 6972
   1:
@@ -104,20 +104,16 @@ topics:
   2:
   - title: Immutability
     theory_id: 7929
-  - title: Dictionary
-    theory_id: 6481
-  - title: Tuple
-    theory_id: 7462
+  - title: Introduction to OOP
+    theory_id: 3614
+  - title: Intro to computational thinking
+    theory_id: 8742
+  - title: Components of computational thinking
+    theory_id: 8745
   - title: Arguments
     theory_id: 7248
-  - title: Operations with list
-    theory_id: 6031
   - title: Functional decomposition
     theory_id: 9571
-  - title: Dictionary methods
-    theory_id: 9008
-  - title: Operations with dictionary
-    theory_id: 11096
   - title: Default arguments
     theory_id: 10295
   - title: Args
@@ -134,33 +130,37 @@ topics:
     theory_id: 6931
   - title: Methods and attributes
     theory_id: 6981
-  - title: Introduction to OOP
-    theory_id: 3614
-  - title: Intro to computational thinking
-    theory_id: 8742
-  - title: Components of computational thinking
-    theory_id: 8745
   - title: String formatting
     theory_id: 6037
+  - title: Dictionary
+    theory_id: 6481
+  - title: Tuple
+    theory_id: 7462
+  - title: Operations with list
+    theory_id: 6031
   - title: Identity testing
     theory_id: 8077
+  - title: Dictionary methods
+    theory_id: 9008
+  - title: Operations with dictionary
+    theory_id: 11096
   - title: Objects in Python
     theory_id: 9262
   3:
+  - title: Inheritance
+    theory_id: 9844
   - title: Magic methods
     theory_id: 7139
   - title: Inheritance
     theory_id: 7235
-  - title: Inheritance
-    theory_id: 9844
   4:
   - title: Computer algorithms
     theory_id: 4953
-  - title: Slicing
-    theory_id: 6177
   - title: Algorithms in Python
     theory_id: 7316
-  - title: Recursion in Python
-    theory_id: 7665
   - title: Recursion basics
     theory_id: 5984
+  - title: Recursion in Python
+    theory_id: 7665
+  - title: Slicing
+    theory_id: 6177

@@ -439,37 +439,53 @@ files:
 
             return CheckResult.correct()
 
-        @dynamic_test(order=4)
+        is_easy_not_moving_like_medium = False
+
+        @dynamic_test(repeat=30, order=4)
         def check_easy_not_moving_like_medium(self):
-            for _ in range(30):
-                program = TestedProgram()
-                program.start()
 
-                output = program.execute("2 2")
+            if self.is_easy_not_moving_like_medium:
+                return CheckResult.correct()
 
+            program = TestedProgram()
+            program.start()
+
+            program.execute("start user easy")
+
+            output = program.execute("2 2")
+
+            game_grid = Grid.from_output(output, 2)
+
+            cells = game_grid.get_grid()
+
+            if cells[0][0] == CellState.EMPTY and cells[2][2] == CellState.EMPTY:
+                output = program.execute("1 1")
                 game_grid = Grid.from_output(output, 2)
+                if game_grid.get_grid()[2][2] == CellState.EMPTY:
+                    self.is_easy_not_moving_like_medium = True
+            else:
+                output = program.execute("1 3")
+                game_grid = Grid.from_output(output, 2)
+                if game_grid.get_grid()[2][0] == CellState.EMPTY:
+                    self.is_easy_not_moving_like_medium = True
 
-                cells = game_grid.get_grid()
+            program.stop()
 
-                if cells[0][0] == CellState.EMPTY and cells[2][2] == CellState.EMPTY:
-                    output = program.execute("1 1")
-                    game_grid = Grid.from_output(output, 2)
-                    if game_grid.get_grid()[2][2] == CellState.EMPTY:
-                        return CheckResult.correct()
-                else:
-                    output = program.execute("1 3")
-                    game_grid = Grid.from_output(output, 2)
-                    if game_grid.get_grid()[2][0] == CellState.EMPTY:
-                        return CheckResult.correct()
+            return CheckResult.correct()
 
-                program.stop()
-
-            return CheckResult.wrong("Looks like your Easy level AI doesn't make a random move!")
+        @dynamic_test(order=5)
+        def check_easy_not_moving_like_medium_after(self):
+            if not self.is_easy_not_moving_like_medium:
+                return CheckResult.wrong("Looks like your Easy level AI doesn't make a random move!")
+            return CheckResult.correct()
 
 
     if __name__ == '__main__':
         TicTacToeTests().run_tests()
   learner_created: false
 feedback_link: https://hyperskill.org/projects/82/stages/453/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 15 Feb 2021 15:58:25 UTC
 record: -1
